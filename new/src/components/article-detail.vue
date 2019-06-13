@@ -1,0 +1,525 @@
+<template>
+<div id="articleDetail">
+  <vhead></vhead>
+<div class="post-template-default single single-post postid-8321 single-format-standard wp-custom-logo" >
+
+  <!-- <div class="top-background"></div> -->
+  <div id="page" class="site container">
+    <div id="content" class="site-content">
+      <div id="primary" class="content-area">
+        <main id="main" class="site-main">
+          <article id="post-8321"
+            class="post-8321 post type-post status-publish format-standard has-post-thumbnail hentry category-engineering tag-dns tag-dsn tag-search-network">
+
+            <div class="entry-content">
+              <div style="clear: both"></div>
+               <div class="entry-header-content">
+                  <h1 class="entry-title ">{{article.title}}</h1>
+                  <!-- <div class="head-post-meta"> Paul Berthaux |
+                    Apr 3rd 2019 |
+                    9 min read
+                    |
+                    Engineering</div> -->
+                </div>
+              <div v-html="article.content"></div>
+              <!-- {{article.content}} -->
+
+            </div>
+          </article>
+        </main>
+      </div>
+    </div>
+  </div>
+</div>
+<vfoot></vfoot>
+</div>
+
+</template>
+
+<script>
+import vhead from "./common/header";
+import vfoot from "./common/footer";
+import https from "../https.js";
+
+export default {
+  name: "articleDetail",
+  data() {
+    return {
+      article: []
+    };
+  },
+  created: function() {},
+  mounted: function() {
+    if (!localStorage.getItem("lang")) {
+      localStorage.setItem("lang", "en_US");
+      this.$i18n.locale = "en_US";
+    }
+    this.getArticleDetail();
+  },
+  components: {
+    vhead,
+    vfoot
+  },
+
+  methods: {
+    getArticleDetail: function() {
+      const aid = this.$route.query.id
+
+      let oData = {
+        id:aid,
+        type: localStorage.getItem("lang") == "zh_CN" ? 1 : 2
+      };
+      https
+        .fetchGet("/home/index/articleDetail", oData)
+        .then(data => {
+          this.article = data.data.data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  }
+};
+</script>
+
+
+
+  <style scoped>
+  @import "./../assets/css/list.css";
+ @import "./../assets/css/common.css";
+.top-background{
+  background-image: none
+}
+
+.bgc-moon{
+    background-color: #ffffff;
+}
+
+.css-12yqsug {
+  font-size: 11px;
+  color: #fff !important;
+  font-size: 16px;
+}
+
+@media (min-width: 1200px) {
+  .css-12yqsug {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 960px) {
+  .css-12yqsug {
+    color: #3a416f !important;
+    font-size: 12px;
+  }
+
+  .css-12yqsug:hover {
+    color: #5468ff !important;
+  }
+}
+
+    .hly-overlay div.hly-view-text,
+    .hly-overlay .hly-icon,
+    .hly-overlay div.hly-view-text span {
+      background: #5468FF !important;
+      background: #5468FF !important;
+      color: #FFFFFF !important;
+    }
+
+    .hly-viewer .hly-toolbar .hly-tools ul li a,
+    .hly-viewer .hly-toolbar .hly-tools ul li a:hover,
+    .hly-viewer .hly-toolbar .hly-tools ul li a span,
+    .hly-embed-wrap .hly-viewer .hly-title {
+      background: #5468FF !important;
+      background-color: #5468FF !important;
+      color: #FFFFFF !important;
+    }
+
+    .hly-viewer .hly-btn {
+      background: #5468FF !important;
+      background-color: #5468FF !important;
+      border-color: #5468FF !important;
+      color: #FFFFFF !important;
+    }
+
+    .hly-embed-wrap .hly-recommendations,
+    .hly-embed-wrap .hly-recommendations .hly-recommendation-list,
+    .hly-mobile .hly-viewer .hly-recommendations,
+    .hly-mobile .hly-recommendations .hly-recommendation-list {
+      background: #5468FF !important;
+      background-color: #5468FF !important;
+      color: #FFFFFF !important;
+    }
+
+    .hly-viewer .hly-recommendations ul li.active,
+    .hly-embed-wrap .hly-viewer .hly-recommendations ul li.active,
+    .hly-mobile .hly-viewer .hly-recommendations ul li.active {
+      border-color: #5468FF !important;
+      color: #FFFFFF !important;
+    }
+
+    .hly-viewer .hly-recommendations::-webkit-scrollbar-thumb,
+    .hly-viewer div.hly-doc::-webkit-scrollbar-thumb,
+    .hly-mobile .hly-viewer .hly-recommendations .hly-recommendation-list::-webkit-scrollbar-thumb {
+      background: #5468FF !important;
+      background-color: #5468FF !important;
+      color: #FFFFFF !important;
+    }
+
+    .hly-viewer span,
+    .hly-viewer em,
+    .hly-viewer .hly-asset-name,
+    .hly-viewer .hly-asset-type,
+    .hly-viewer .hly-asset-title,
+    .hly-viewer .hly-form .hly-email-lbl,
+    .hly-viewer .hly-form .hly-country-lbl,
+    .hly-viewer .hly-btn,
+    .hly-viewer .hly-thankyou-hint {
+      font-family: Hind, Poppins, Sans-Serif !important;
+    }
+
+    .hly-viewer {
+      background: #F6F6FA !important;
+      background-color: #F6F6FA !important;
+    }
+
+    @import url('https://fonts.googleapis.com/css?family=Hind:400,600');
+
+    .hly-mfp-wrap {
+      z-index: 10500001 !important;
+    }
+
+    .hly-viewer {
+      border-radius: 7px;
+      background-size: cover !important;
+      background-position: 0px -5px !important;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+    }
+
+    .hly-viewer .hly-content-container {
+      padding: 15px;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    .hly-viewer .hly-content-container .hly-viewer-root {
+      display: flex;
+      height: 100%;
+    }
+
+    .hly-viewer .hly-content-container .hly-sidebar {
+      padding: 0px 15px 0px 0px;
+      float: unset !important;
+      flex: 3;
+      width: unset !important;
+    }
+
+    .hly-viewer .hly-content-container .hly-sidebar .hly-company-logo {
+      margin-top: 0px;
+      margin-bottom: 25px;
+      margin-left: 0px;
+    }
+
+    .hly-viewer .hly-content-container .hly-sidebar .hly-company-logo img {
+      height: 40px !important;
+    }
+
+    .hly-viewer .hly-sidebar>div.durandal-wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .hly-viewer .hly-sidebar .hly-recommendations-container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .hly-viewer .hly-sidebar .hly-recommendations-container .hly-recommendations {
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .hly-viewer .hly-sidebar .hly-recommendations ul li.active {
+      border: 1px solid #5468ff !important;
+    }
+
+    .hly-viewer .hly-sidebar .hly-recommendations-container .hly-recommendations .hly-recommendation-list {
+      flex: 1;
+    }
+
+    .hly-viewer .hly-sidebar .hly-exitintent-message {
+      font-size: 14px !important;
+      margin-bottom: 15px !important;
+      margin-top: -10px;
+      color: #848AB8 !important;
+      padding: 0px 10px 0px 0px;
+      line-height: 16px;
+    }
+
+    .hly-viewer .hly-recommendations ul li,
+    .hly-viewer .hly-primary-asset ul li {
+      margin: 0 5px 15px 5px !important;
+    }
+
+    .hly-viewer .hly-asset-composition {
+      flex: 1 !important;
+    }
+
+    .hly-viewer .hly-type-document .hly-toolbar {
+      background: #f8f8fb !important;
+      box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149) !important;
+      max-height: 55px;
+      border-radius: 3px 3px 0px 0px !important;
+      padding: 10px;
+    }
+
+    .hly-viewer .hly-type-document .hly-toolbar .hly-tools ul {
+      height: 30px;
+      line-height: 30px;
+    }
+
+    .hly-viewer div.hly-doc .hly-doc-pages img {
+      min-height: 480px !important;
+    }
+
+    .new_mobile .hly-viewer .hly-type-document .hly-toolbar .hly-tools .hly-asset-name,
+    .new_mobile .hly-viewer .hly-type-document .hly-toolbar .hly-tools .hly-page-count-display {
+      font-weight: 400 !important;
+    }
+
+    .hly-viewer .hly-type-document .hly-toolbar .hly-tools .hly-asset-name,
+    .hly-viewer .hly-type-document .hly-toolbar .hly-tools .hly-page-count-display {
+      font-weight: 600 !important;
+      color: #626998 !important;
+      font-size: 14px;
+      height: 30px;
+      line-height: 33px;
+    }
+
+    .hly-viewer .hly-page-count-display {
+      left: unset !important;
+      right: 75px;
+      text-align: right !important;
+    }
+
+    .hly-viewer .hly-type-document .hly-toolbar .hly-tools .hly-asset-name {
+      width: 70% !important;
+    }
+
+    .hly-viewer div.hly-doc div.hly-doc-pages {
+      background-color: #20243d !important;
+      padding: 0px 20px;
+    }
+
+    .hly-viewer .hly-more-title {
+      margin-top: 10px;
+      color: #7278a2 !important;
+    }
+
+    .hly-viewer .hly-mfp-close {
+      width: 40px !important;
+      height: 40px !important;
+      border-radius: 50% !important;
+      color: #848ab7 !important;
+      font-weight: 600;
+      font-size: 35px !important;
+      background-color: #fdfdfe !important;
+      display: block;
+    }
+
+    .hly-viewer .hly-powered-logo {
+      opacity: 1 !important;
+      background-position: 50px -14px;
+    }
+
+    .hly-no-preview .hly-content-container {
+      border-radius: 10px;
+    }
+
+    .hly-viewer .hly-content-container .hly-viewer-container {
+      box-shadow: none !important;
+      flex: 7;
+      display: flex !important;
+      flex-direction: column;
+    }
+
+    .hly-viewer .hly-recommendations ul li.active,
+    .hly-embed-wrap .hly-viewer .hly-recommendations ul li.active,
+    .hly-mobile .hly-viewer .hly-recommendations ul li.active {
+      border: none !important;
+    }
+
+    .hly-viewer .hly-recommendations ul li,
+    .hly-viewer .hly-primary-asset ul li {
+      border: 0px;
+      border-radius: 6px !important;
+    }
+
+    .hly-viewer .hly-recommendations ul li .hly-asset,
+    .hly-viewer .hly-primary-asset ul li .hly-asset {
+      cursor: pointer;
+      display: flex;
+      box-shadow: -1px 2px 6px 0 rgba(61, 67, 112, 0.38);
+      border-radius: 6px !important;
+      background-color: #fff;
+      border: 0px;
+    }
+
+    .hly-viewer .hly-recommendations ul li .hly-asset .hly-asset-type,
+    .hly-viewer .hly-primary-asset ul li .hly-asset .hly-asset-type {
+      font-weight: 700;
+    }
+
+    .hly-viewer .hly-recommendations ul li .hly-asset .hly-asset-type,
+    .hly-viewer .hly-recommendations ul li .hly-asset .hly-asset-title,
+    .hly-viewer .hly-primary-asset ul li .hly-asset .hly-asset-type,
+    .hly-viewer .hly-primary-asset ul li .hly-asset .hly-asset-title {
+      color: #6d729e !important;
+    }
+
+    .hly-viewer .hly-recommendations ul li:hover,
+    .hly-viewer .hly-primary-asset ul li:hover {
+      background-color: #fefefe;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03);
+    }
+
+    .hly-viewer .hly-recommendations ul li .hly-asset .hly-asset-thumbnail,
+    .hly-viewer .hly-primary-asset ul li .hly-asset .hly-asset-thumbnail {
+      width: 92px !important;
+      min-width: 92px !important;
+      margin: 10px;
+    }
+
+    .hly-viewer .hly-recommendations::-webkit-scrollbar-thumb,
+    .hly-viewer div.hly-doc::-webkit-scrollbar-thumb,
+    .hly-mobile .hly-viewer .hly-recommendations .hly-recommendation-list::-webkit-scrollbar-thumb {
+      border-radius: 12px;
+    }
+
+    .hly-viewer .hly-preview-msg-container {
+      padding: 20px 10px 20px 0px;
+      background: #20243d;
+      border-radius: 0px 0px 5px 5px;
+      box-shadow: 0 5px 10px rgba(158, 158, 158, 0.54);
+      height: 100%;
+    }
+
+    .hly-full-screen .hly-viewer {
+      border-radius: 0px !important;
+    }
+
+    .hly-viewer .hly-full-screen-ref {
+      height: 100%;
+    }
+
+    .hly-doc.hly-scrollable {
+      height: 100% !important;
+    }
+
+    .hly-scrollable::-webkit-scrollbar {
+      width: 12px;
+      border-radius: 12px;
+    }
+
+    .hly-scrollable::-webkit-scrollbar-track {
+      border-radius: 12px;
+    }
+
+    .hly-icon-arrows-alt:before,
+    .hly-icon-download::before,
+    .hly-icon-expand::before {
+      visibility: hidden !important;
+    }
+
+    .hly-action-items li a {
+      border-radius: 5px;
+    }
+
+    .hly-viewer .hly-toolbar .hly-tools ul li:last-child {
+      display: none !important;
+    }
+
+    i.hly-icon.hly-icon-arrows-alt,
+    i.hly-icon.hly-icon-download,
+    i.hly-icon.hly-icon-expand {
+      cursor: pointer !important;
+      background-repeat: no-repeat !important;
+      background-size: contain !important;
+      background-position: 0px 7px !important;
+    }
+
+
+    .hly-viewer .hly-preview-msg-container {
+      padding: 20px 10px 20px 0px;
+      background: #20243d;
+      border-radius: 0px 0px 5px 5px;
+      box-shadow: 0 5px 10px rgba(158, 158, 158, 0.54);
+      height: 100%;
+    }
+
+
+    /* Mobile Styles */
+
+    .hly-mobile .hly-viewer {
+      border-radius: 0px;
+    }
+
+    .hly-mobile .hly-viewer .hly-exitintent-message {
+      margin-top: 10px !important;
+      padding: 0px;
+      font-size: 15px !important;
+      line-height: 17px;
+    }
+
+    .hly-mobile .hly-viewer .hly-content-container .hly-viewer-container {
+      width: 100% !important;
+      margin-top: 20px;
+      box-shadow: 0px 0px 4px 0px !important;
+    }
+
+    .hly-mobile .hly-viewer .hly-mfp-close {
+      top: 0px !important;
+      left: unset !important;
+      right: 0px !important;
+      color: #fff !important;
+      background-color: #5468FF !important;
+      width: 28px !important;
+      height: 28px !important;
+      border-radius: 0px !important;
+      font-size: 25px !important;
+    }
+
+    .hly-mobile .hly-viewer .hly-content-container .hly-sidebar {
+      margin-bottom: 0px !important;
+    }
+
+    .hly-mobile .hly-viewer .hly-type-document .hly-toolbar {
+      margin-top: -10px;
+      box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.6);
+    }
+
+    .hly-mobile .hly-viewer .hly-content-container .hly-sidebar {
+      flex: unset !important;
+    }
+
+    .hly-mobile .hly-viewer .hly-content-container .hly-viewer-root {
+      flex-direction: column !important;
+    }
+
+    .hly-mobile .hly-mfp-close {
+      right: 0px !important;
+    }
+
+    .hly-mobile .hly-viewer .hly-type-document .hly-toolbar .hly-tools .hly-page-count-display {
+      left: unset !important;
+      right: 35px;
+    }
+
+    .hly-mobile .hly-viewer div.hly-doc .hly-doc-pages img {
+      min-height: 200px !important;
+    }
+  </style>
