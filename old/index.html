@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EDAG</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!--header start-->
+<header class="container">
+    <div class="row">
+        <div class="col-md-12 logo text-center"><a href="index.html"><img src="images/logo.png" alt=""
+                                                                          width="242px"></a>
+        </div>
+        <div class="col-md-12 nav-header text-center">
+            <a href="index.html">HOME</a><a href="">INTRODUCTION EDAG</a><a href="">FILE DOWNLOAD</a><a href="">SYSTEMS
+            OVERVIEW</a><a href="">STRATIFIED CONSENSUS</a><a href="">PARTNER</a><a href=""
+                                                                                    class="no-border">COMMUNITY</a>
+        </div>
+    </div>
+</header>
+<!--header end-->
+<!--banner-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="banner text-center">
+            <img src="images/banner.png" alt="" width="100%">
+            <div class="wenzi">
+                <p>INDUSTRIAL DAG SYSTEM WITH HIGH PERFORMANCE AND EXTENSIBILITY</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--summary-->
+<div class="container">
+    <div class="row">
+        <div class="summary text-center">
+            <p>SUMMARY</p>
+            <img src="images/glkb.png" alt="" width="80%">
+            <p class="p">EDAG is a backbone product that provides a completely different distributed consensus approach from current blockchain solutions. It takes advantage of the "Hashgraph" structure and consensus mechanism different from linear blocks to achieve the goal of distributed consistency, beyond the limitation of the current blockchain technology. EDAG not only guarantees consistency, but also considers decentralization, speediness, provability, Byzantine Fault Tolerance, ACID compatibility, cheapness, anti-DoS attack and so on. It can achieve the consensus on a large scale but low-cost basis to become a more efficient (processing tens of thousands of transactions per second) and more equitable (no need for competition for blocks) Internet trust layer. EDAG has the potential to become a truly trusted network for mass adoption and application, which will be an important milestone in the exploration of trusted Internet.</p>
+            <div class="small_wenzi">
+                <div class="col-md-4"><p class="p1">WHITE PAPER</p></div>
+                <div class="col-md-4">
+                    <h3>SHDPOS</h3>
+                    <p>EDAG WALLET<span>IN DEVELOPMENT</span></p>
+                </div>
+                <div class="col-md-4"><p class="no-border">RPC API<span>IN DEVELOPMENT</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--main start-->
+<main class="container-fluid" id="index">
+    <div class="row">
+        <!--SYSTEMS OVERVIEW-->
+        <div class="col-md-12 coop text-center">
+            <div class="coop-img"><p>SYSTEMS OVERVIEW</p></div>
+            <div class="container">
+                <p class="sys">The core layer includes P2P modules for network communication, ledger memory and
+                    consensus mechanism. The upper layer is the computing layer, supporting Turing-complete smart
+                    contract. The system is composed of ordinary nodes and witness nodes. The former manages and
+                    maintains its own account chain, while the latter collects transactions of the whole account chain,
+                    processes branches and maintains the consistency of DAG. The two layers of entire consensus state
+                    respectively are the temporary consensus of the account layer of ordinary nodes, and the ultimate
+                    consensus of the whole network maintained by witness nodes.
+                </p>
+            </div>
+            <div class="edag_small">
+                <div class="outter">
+                    <div class="inner">
+                        <div class="scale" onmouseover=block($('.div1')) onmouseout=none($('.div1'))>
+                            <span>P2P NETWORK</span>
+                            <div class="div1">Peer-to-Peer network mainly adopts the Kad algorithm, which is a
+                                Distributed Hash Table (DHT) technology applying numbers of resources and nodes to
+                                evenly distribute the space and to meet the requirements of structured distributed
+                                network. DHT can quickly and accurately route and locate data. Nodes are usually
+                                connected through the TCP protocol and confirmed by a communication process, used to
+                                determine the protocol version, software version, node IP, block height and so on.
+                                <i class="glyphicon glyphicon-triangle-bottom"></i>
+                            </div>
+                        </div>
+                        <div class="scale" onmouseover=block($('.div2')) onmouseout=none($('.div2'))>
+                            <span>NODE</span>
+                            <div class="div2">The network is composed of ordinary nodes and witness nodes. The former
+                                maintains its own account chain in line with the protocol, while the latter selected by
+                                an agency maintains the ultimate consensus by collecting transaction units and verifying
+                                transaction sets by webcast.
+                                <i class="glyphicon glyphicon-triangle-bottom"></i>
+                            </div>
+                        </div>
+                        <div class="scale" onmouseover=block($('.div3')) onmouseout=none($('.div3'))>
+                            <span> ACCOUNT</span>
+                            <div class="div3">Based on the BlockLattice chain, each ordinary node account maintains its
+                                own transaction chain locally, including the balance and transaction record.<i
+                                        class="glyphicon glyphicon-triangle-bottom"></i>
+                            </div>
+                        </div>
+                        <div class="scale"></div>
+                        <div class="scale" onmouseover=block($('.div5')) onmouseout=none($('.div5'))>
+                            <span> ACCOUNT-DAG</span>
+                            <div class="div5">World State, which replaces the design protocol with the operation
+                                protocol, is written and verified by the account chain through decoupling transactions,
+                                and finally forms the integrated DAG asynchronously agreed by the witness node, forms
+                                the DAG. Transformed from the corresponding merkle tree and hash, the world state will
+                                change as the transaction unit changes.<i
+                                        class="glyphicon glyphicon-triangle-bottom"></i>
+                            </div>
+                        </div>
+                        <div class="scale" onmouseover=block($('.div6')) onmouseout=none($('.div6'))>
+                            <span> TRANSACTION</span>
+                            <div class="div6">Transaction is the abstract expression of ordinary and contract
+                                transactions. A complete ordinary transaction corresponds to a transaction pair
+                                consisting of a delivery unit from the sender account chain and an acceptance unit from
+                                the receiver account chain. The sender transaction unit contains the hash value of the
+                                previous unit, address of the receiving account, signature of the sender account, and
+                                the unit hash value. The receiver transaction unit contains the hash value from the
+                                sender transaction unit, signature of the receiver, and the unit hash value. The amount
+                                will be locked after issuing the transaction and cannot be revoked. Only when the
+                                receiver successfully creates a receiving unit and broadcasts to confirm the transaction
+                                will the sender receive the amount.<i class="glyphicon glyphicon-triangle-bottom"></i>
+                            </div>
+                        </div>
+                        <div class="scale" onmouseover=block($('.div7')) onmouseout=none($('.div7'))>
+                            <span> WITNESS</span>
+                            <div class="div7">The witness node verifies transaction and maintains ultimate consistency
+                                of the integrated ledger. The BlockLattice model is designed for high performance, and
+                                is maintained by the nodes of the account chain, thus creating security risks of
+                                verification. Among these risks, double-spending attack of malicious nodes should be
+                                handled first. Therefore, RAIBLOCKS applies a voting mechanism based on the balance
+                                weight to solve it. If the confidence threshold value of transaction confirmation is
+                                satisfied, the cost of damaging historical ledgers by malicious attackers through
+                                branches will be incalculable, as well as the rate of convergence and the robustness of
+                                consensus. This requires a higher level of security. The packaged transaction collection
+                                mechanism of the witness node will be synchronized in the network through the design
+                                concept of the longest chain. In addition, world state will reach the consensus when
+                                sufficient security and confidence are confirmed by the longest chain of stratified
+                                consensus mechanisms.<i class="glyphicon glyphicon-triangle-bottom"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--SHDPOS-->
+        <div class="col-md-12 coop text-center">
+            <div class="coop-img"><p>SHDPOS</p></div>
+            <!--<div class="container">-->
+            <div class="shdpos">
+                <div class="leftimg col-md-6">
+                    <div class="imgp">
+                        <img src="images/left.png" alt="" width="60%">
+                        <p>TEMPORARY CONSENSUS</p>
+                    </div>
+                    <div class="p">
+                        <p>It promotes the consensus between the two parties in transactions, which is reached after the verification and validation of signature, balance and HASH by the receiver. Given that most transaction information is normal, the temporary consensus mechanism can verify the decoupled trading units of both parties in the network, omitting the witness node in traditional DPoS mechanism and improving the efficiency of transaction confirmation.</p>
+                    </div>
+                </div>
+                <div class="rightimg col-md-6 fr">
+                    <div class="imgp">
+                        <img src="images/right.png" alt="" width="60%">
+                        <p>ULTIMATE CONSENSUS</p>
+                    </div>
+                    <div class="p">
+                        <p>Ultimate consensus mainly confirms the temporary consensus with potential flaw of double-spending. The witness node timely collects the information of transaction units, sorts it out as a transaction collection, eliminates double-spending transactions through the DPoS mechanism, and reaches the final consensus.</p>
+                    </div>
+                </div>
+            </div>
+            <!--</div>-->
+        </div>
+        <!--COOPERATIVE PARTNER-->
+        <div class="col-md-12 coop text-center">
+            <div class="coop-img"><p>COOPERATIVE PARTNER</p></div>
+            <div class="yl">
+                <a href=""><img src="images/hx.png" alt=""></a>
+                <a href=""><img src="images/js.png" alt=""></a>
+                <a href=""><img src="images/hqz.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+</main>
+<!--main end-->
+<!--footer start-->
+<footer>
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <p class="community">COMMUNITY</p>
+                <p class="a-lj">
+                    <a href=""><img src="images/icon_github.png" alt=""></a>
+                    <a href=""><img src="images/icon_twitter.png" alt=""></a>
+                    <a href=""><img src="images/icon_facebook.png" alt=""></a>
+                    <a href=""><img src="images/icon_m.png" alt=""></a>
+                    <a href=""><img src="images/icon_b.png" alt=""></a>
+                    <a href=""><img src="images/icon_youtube.png" alt=""></a>
+                    <a href=""><img src="images/icon_sina.png" alt=""></a>
+                    <a href=""><img src="images/icon_telegram.png" alt=""></a>
+                    <a href=""><img src="images/icon_wachat.png" alt=""></a>
+                    <a href=""><img src="images/icon_qq.png" alt=""></a>
+                    <a href=""><img src="images/icon_f.png" alt=""></a>
+                    <a href=""><img src="images/icon_in.png" alt=""></a>
+                    <a href=""><img src="images/icon_mail.png" alt=""></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--footer end-->
+<script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="js/myjs.js"></script>
+</body>
+</html>
